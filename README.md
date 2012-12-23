@@ -1,7 +1,7 @@
 
 CleanUp
 
-written by: espen.gundersen [at] keystep.no (c) / LGPG
+written by: espen.gundersen [at] keystep.no (c) / LGPL
 
 
 
