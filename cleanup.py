@@ -1,4 +1,5 @@
 #!/usr/bin/env python 
+# Espen Gundersen (c) / LGPL
 
 import os, time, sys
 from optparse import OptionParser
