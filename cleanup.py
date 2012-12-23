@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
 	if options.path:
 		if options.days:
-			files = find_files(options.path,options.days)
+			files = find_files(options.path,int(options.days))
 			delete_files(files)
 		else:
 			files = find_files(options.path,7)
