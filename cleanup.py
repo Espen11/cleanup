@@ -22,9 +22,10 @@ def find_files(path,days):
 
 	return file_list
 
-def delete_files(file_list):
-	ans = raw_input('\nType y to continue: ')
-	if ans == 'y':
+def delete_files(file_list,yes):
+	if not yes:
+		ans = raw_input('\nType y to continue: ')
+	if yes or ans == 'y':
 		for file in file_list:
 			if os.path.isfile(file):
 				os.remove(file)
@@ -39,6 +40,7 @@ if __name__ == '__main__':
 	parser = OptionParser(usage=usage)
 	parser.add_option('-p', '--path', dest='path', help='dir to clean', metavar='path')
 	parser.add_option('-d', '--days', dest='days', help='delete files older that x days', metavar='days')
+	parser.add_option('-y', '--yes', action='store_true', dest="yes", help='forcing yes, without asking. "quiet" mode')
 
 	(options, args) = parser.parse_args()
 
@@ -46,8 +48,8 @@ if __name__ == '__main__':
 	if options.path:
 		if options.days:
 			files = find_files(options.path,int(options.days))
-			delete_files(files)
+			delete_files(files,options.yes)
 		else:
 			files = find_files(options.path,7)
-			delete_files(files)
+			delete_files(files,options.yes)
 
