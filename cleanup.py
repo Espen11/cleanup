@@ -3,9 +3,8 @@
 import os, time, sys
 from optparse import OptionParser
 
-days = 7
 
-def find_files(path):
+def find_files(path,days):
 	now = time.time()
 	file_list = []
 	tot_size = 0
@@ -41,10 +40,16 @@ if __name__ == '__main__':
 	usage = "Usage: %prog [options]"
 	parser = OptionParser(usage=usage)
 	parser.add_option('-p', '--path', dest='path', help='dir to clean', metavar='path')
+	parser.add_option('-d', '--days', dest='days', help='delete files older that x days', metavar='days')
 
 	(options, args) = parser.parse_args()
 
+
 	if options.path:
-		files = find_files(options.path)
-		delete_files(files)
+		if options.days:
+			files = find_files(options.path,options.days)
+			delete_files(files)
+		else:
+			files = find_files(options.path,7)
+			delete_files(files)
 
