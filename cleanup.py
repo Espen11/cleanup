@@ -1,5 +1,5 @@
 #!/usr/bin/env python 
-# Espen Gundersen (c) / LGPL
+# Espen Gundersen (c) / GPL 
 
 import os, time, sys
 from optparse import OptionParser
